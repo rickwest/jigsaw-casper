@@ -15,19 +15,11 @@
         </ul>
     </div>
     <div class="site-nav-right">
-        {{--<div class="social-links">--}}
-            {{--{{#if @site.facebook}}--}}
-            <a class="social-link social-link-fb" href="{{ $page->socials->facebook->link }}" title="Facebook" target="_blank" rel="noopener">Facebook</a>
-            {{--{{/if}}--}}
-{{--            {{#if @site.twitter}}--}}
-            {{--<a class="social-link social-link-tw" href="{{ $page->socials->twitter->link }}" title="Twitter" target="_blank" rel="noopener">@include('_partials.icons.twitter')</a>--}}
-            {{--{{/if}}--}}
-        {{--</div>--}}
+        @foreach($page->socials as $social)
+            <a class="social-link social-link-fb" href="{{ $social->link }}" title="{{ $social->label }}" target="_blank" rel="noopener"><i class="{{ $social->icon }} fa-lg"></i></a>
+        @endforeach
         @if($page->subscribe)
         <a class="subscribe-button" href="#subscribe">Subscribe</a>
         @endif
-        {{--{{else}}--}}
-        {{--<a class="rss-button" href="#" title="RSS" target="_blank" rel="noopener">@include('_partials.icons.rss')</a>--}}
-        {{--{{/if}}--}}
     </div>
 </nav>
