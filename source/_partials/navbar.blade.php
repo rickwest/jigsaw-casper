@@ -2,9 +2,9 @@
     <div class="site-nav-left">
         @if($page->getPath() !== '/')
             @if($page->logo)
-            <a class="site-nav-logo" href="{{ $page->baseUrl }}"><img src="{{ $page->logo }}" alt="{{ $page->siteName }}" /></a>
+            <a class="site-nav-logo" href="/"><img src="{{ $page->logo }}" alt="{{ $page->siteName }}" /></a>
             @else
-            <a class="site-nav-logo" href="{{ $page->baseUrl }}">{{ $page->siteName }}</a>
+            <a class="site-nav-logo" href="/">{{ $page->siteName }}</a>
             @endif
         @endif
 
