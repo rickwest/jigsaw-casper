@@ -1,19 +1,19 @@
-<article class="post-card no-image post-card-large">
-
+<article class="post-card {{!$post->image ? 'no-image' : '' }} {{ $loop->first || (($loop->index % 6) === 0) ? 'post-card-large' : '' }}">
+{{$loop->index}}
     @if($post->image)
-    {{--<a class="post-card-image-link" href="{{url}}">--}}
-        {{--{{!-- This is a responsive image, it loads different sizes depending on device--}}
-        {{--https://medium.freecodecamp.org/a-guide-to-responsive-images-with-ready-to-use-templates-c400bd65c433 --}}
-        {{--<img class="post-card-image"--}}
-             {{--srcset="{{img_url feature_image size="s"}} 300w,--}}
-                    {{--{{img_url feature_image size="m"}} 600w,--}}
-                    {{--{{img_url feature_image size="l"}} 1000w,--}}
-                    {{--{{img_url feature_image size="xl"}} 2000w"--}}
-             {{--sizes="(max-width: 1000px) 400px, 700px"--}}
-             {{--src="{{img_url feature_image size="m"}}"--}}
-             {{--alt="{{title}}"--}}
-        {{--/>--}}
-    {{--</a>--}}
+    <a class="post-card-image-link" href="{{$post->getPath()}}">
+    {{-- This is a responsive image, it loads different sizes depending on device --}}
+    {{-- https://medium.freecodecamp.org/a-guide-to-responsive-images-with-ready-to-use-templates-c400bd65c433 --}}
+        <img class="post-card-image"
+             srcset="{{ $post->image }} 300w,
+                    {{ $post->image }} 600w,
+                    {{$post->image}} 1000w,
+                    {{$post->image}} 2000w"
+             sizes="(max-width: 1000px) 400px, 700px"
+             src="{{$post->image}}"
+             alt="{{$post->title}}"
+        />
+    </a>
     @endif
 
     <div class="post-card-content">
@@ -51,7 +51,7 @@
                 {{--{{/foreach}}--}}
             {{--</ul>--}}
 
-            <span class="reading-time">{{ $page->readingTime($post) }}</span>
+            <span class="reading-time">{{ $post->readingTime($post) }}</span>
 
         </footer>
 

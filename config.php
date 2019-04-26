@@ -4,6 +4,8 @@ return [
     'production' => false,
     'baseUrl' => '',
 
+    'logo' => '/assets/images/jigsaw-casper-light.png',
+
     'collections' => [
     // Posts collection sorted by date and in descending order (latest post at the top)
         'posts' => [
@@ -12,7 +14,7 @@ return [
     ],
 
     // Number of collection items to show per page
-    'perPage' => 5,
+    'perPage' => 100,
 
     // The email address to send the https://formspree.io/ contact form submissions to
     'email' => '',
@@ -33,18 +35,17 @@ return [
         'twitter' => [
             'link' => '#',
             'icon' => 'fab fa-twitter',
+            'label' => 'Twitter',
         ],
         'facebook' => [
             'link' => '#',
             'icon' => 'fab fa-facebook-f',
+            'label' => 'Facebook',
         ],
         'github' => [
             'link' => '#',
             'icon' => 'fab fa-github',
-        ],
-        'rss' => [
-            'link' => '/feed.xml',
-            'icon' => 'fas fa-rss',
+            'label' => 'Github',
         ],
     ],
 //      'another social service' => [

@@ -4,6 +4,7 @@ section: content
 title: Getting Started
 date: 2019-01-21
 subtitle: Getting started with the Jigsaw Clean Blog starter template
+image: /assets/images/getting-started.jpg
 ---
 
 This is a starter template for creating a beautiful, customizable blog with minimal effort. You’ll only have to change a few settings and you’re ready to go.

@@ -20,14 +20,13 @@
                 <div class="site-footer-content inner">
                     <section class="copyright"><a href="{{ $page->baseUrl }}">{{ $page->siteName }}</a> &copy; <script type="text/javascript">document.write(new Date().getFullYear());</script></section>
                     <nav class="site-footer-nav">
-                        <a href="#">Latest Posts</a>
-                        {{--<a href="{{ $page->socials->facebook->link }}" target="_blank" rel="noopener">Facebook</a>--}}
-                        {{--<a href="{{ $page->socials->twitter->link }}" target="_blank" rel="noopener">Twitter</a>--}}
-                        <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a>
+                        @foreach($page->socials as $social)
+                            <a href="{{ $social->link }}" target="_blank" rel="noopener">{{ $social->label }}</a>
+                        @endforeach
+                        <a href="/feed.xml" target="_blank" rel="noopener">RSS</a>
                     </nav>
                 </div>
             </footer>
-
         </div>
 
         {{--The big email subscribe modal content--}}
@@ -35,17 +34,18 @@
         <div id="subscribe" class="subscribe-overlay">
             <a class="subscribe-overlay-close" href="#"></a>
             <div class="subscribe-overlay-content">
-                {{--{{#if @site.logo }}--}}
-                {{--<img class="subscribe-overlay-logo" src="{{@site.logo}}" alt="{{@site.title}}" />--}}
-                {{--{{/if}}--}}
+                @if($page->logo)
+                    <img class="subscribe-overlay-logo" src="{{ $page->logo }}" alt="{{ $page->siteName }}" />
+                @endif
                 <h1 class="subscribe-overlay-title">Subscribe to {{ $page->siteName }}</h1>
                 <p class="subscribe-overlay-description">Stay up to date! Get all the latest &amp; greatest posts delivered straight to your inbox</p>
-                <form method="post" action="/subscribe/" id="" class="" _lpchecked="1">
-                    <input class="confirm" type="hidden" name="confirm"><input class="location" type="hidden" name="location" value="https://demo.ghost.io/welcome-short/"><input class="referrer" type="hidden" name="referrer" value="https://demo.ghost.io/tag/getting-started/">
+                <form action="https://tinyletter.com/rickwest" method="post" target="popupwindow"
+                      onsubmit="window.open('https://tinyletter.com/rickwest', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true">
 
                     <div class="form-group">
-                        <input class="subscribe-email" type="email" name="email" placeholder="youremail@example.com">
+                        <input class="subscribe-email" type="email" name="email" id="tlemail" placeholder="youremail@example.com" />
                     </div>
+                    <input type="hidden" value="1" name="embed"/>
                     <button id="" class="" type="submit"><span>Subscribe</span></button>
                 </form>
             </div>

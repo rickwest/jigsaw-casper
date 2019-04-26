@@ -24,23 +24,23 @@
                 <h1 class="post-full-title">{{$page->title}}</h1>
             </header>
 
-            {{--{{#if feature_image}}--}}
-            {{--<figure class="post-full-image">--}}
-                {{--{{!-- This is a responsive image, it loads different sizes depending on device--}}
-                {{--https://medium.freecodecamp.org/a-guide-to-responsive-images-with-ready-to-use-templates-c400bd65c433--}}
-                {{--<img--}}
-                        {{--srcset="{{img_url feature_image size="s"}} 300w,--}}
-                            {{--{{img_url feature_image size="m"}} 600w,--}}
-                            {{--{{img_url feature_image size="l"}} 1000w,--}}
-                            {{--{{img_url feature_image size="xl"}} 2000w"--}}
-                        {{--sizes="(max-width: 800px) 400px,--}}
-                            {{--(max-width: 1170px) 700px,--}}
-                            {{--1400px"--}}
-                        {{--src="{{img_url feature_image size="xl"}}"--}}
-                        {{--alt="{{title}}"--}}
-                {{--/>--}}
-            {{--</figure>--}}
-            {{--{{/if}}--}}
+            @if($page->image)
+                <figure class="post-full-image">
+    {{--                This is a responsive image, it loads different sizes depending on device--}}
+    {{--                https://medium.freecodecamp.org/a-guide-to-responsive-images-with-ready-to-use-templates-c400bd65c433--}}
+                    <img
+                        srcset="{{ $page->image }} 300w,
+                            {{ $page->image }} 600w,
+                            {{ $page->image }} 1000w,
+                            {{ $page->image }} 2000w"
+                        sizes="(max-width: 800px) 400px,
+                            (max-width: 1170px) 700px,
+                            1400px"
+                        src="{{ $page->image }}"
+                        alt="{{ $page->title }}"
+                    />
+                </figure>
+            @endif
 
             <section class="post-full-content">
                 <div class="post-content">
@@ -53,18 +53,19 @@
                 <section class="subscribe-form">
                     <h3 class="subscribe-form-title">Subscribe to {{ $page->siteName }}</h3>
                     <p>Get the latest posts delivered right to your inbox</p>
-                    <form method="post" action="/subscribe/" id="" class="" _lpchecked="1">
-                        <input class="confirm" type="hidden" name="confirm"><input class="location" type="hidden" name="location" value="https://demo.ghost.io/the-purpose-of-education/"><input class="referrer" type="hidden" name="referrer" value="https://demo.ghost.io/">
+                    <form action="https://tinyletter.com/rickwest" method="post" target="popupwindow"
+                          onsubmit="window.open('https://tinyletter.com/rickwest', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true">
 
                         <div class="form-group">
-                            <input class="subscribe-email" type="email" name="email" placeholder="youremail@example.com">
+                            <input class="subscribe-email" type="email" name="email" id="tlemail" placeholder="youremail@example.com" />
                         </div>
+                        <input type="hidden" value="1" name="embed"/>
                         <button id="" class="" type="submit"><span>Subscribe</span></button>
                     </form>
                 </section>
             @endif
 
-            <footer class="post-full-footer">
+{{--            <footer class="post-full-footer">--}}
 
                 {{--{{!-- There are two options for how we display the byline/author-info.--}}
                 {{--If the post has more than one author, we load a specific template--}}
@@ -77,7 +78,7 @@
                 {{--{{> "byline-single"}}--}}
                 {{--{{/has}}--}}
 
-            </footer>
+{{--            </footer>--}}
 
 
             {{--<section class="post-full-comments">--}}
