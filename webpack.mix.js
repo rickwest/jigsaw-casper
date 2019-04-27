@@ -11,14 +11,4 @@ mix.webpackConfig({
     ]
 });
 
-mix
-    // .js('source/_assets/js/main.js', 'js')
-    // .sass('source/_assets/sass/main.scss', 'css')
-    .options({
-        processCssUrls: false,
-    }).version();
-
-mix.styles([
-    // 'source/_assets/built/css/global.css',
-    'source/_assets/built/screen.css'
-], 'source/assets/build/css/main.css');
+mix.copyDirectory('source/_assets/built', 'source/assets/build');
