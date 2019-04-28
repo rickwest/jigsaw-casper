@@ -4,6 +4,7 @@ section: content
 title: Styles and Formatting
 subtitle: What some of the basic type styles will look like in this starter template
 date: 2019-01-20
+image: /assets/images/design.jpg
 ---
 
 This starter template is based on the [Start Bootstrap Clean Blog](https://startbootstrap.com/template-overviews/clean-blog/) theme, which is built on top of  [Bootstrap 4](https://getbootstrap.com/), the world's most popular front-end component library.
