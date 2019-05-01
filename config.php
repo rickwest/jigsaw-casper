@@ -4,17 +4,27 @@ return [
     'production' => false,
     'baseUrl' => '',
 
-    'logo' => '/assets/images/jigsaw-casper-light.png',
+    'logo' => '/assets/images/jigsaw-casper-logo.png',
+
+    'icon' => '/assets/images/jigsaw-casper-icon.png',
 
     'collections' => [
     // Posts collection sorted by date and in descending order (latest post at the top)
         'posts' => [
             'sort' => '-date'
-        ]
+        ],
+        'tags' => [
+            'path' => '/blog/categories/{filename}',
+            'posts' => function ($page, $allPosts) {
+                return $allPosts->filter(function ($post) use ($page) {
+                    return $post->tags ? in_array($page->getFilename(), $post->tags, true) : false;
+                });
+            },
+        ],
     ],
 
     // Number of collection items to show per page
-    'perPage' => 100,
+    'perPage' => 10,
 
     // The email address to send the https://formspree.io/ contact form submissions to
     'email' => '',
@@ -25,7 +35,7 @@ return [
     // The description of the site. This is used in for the site's default metadata
     'siteDescription' => 'The professional publishing platform',
 
-    // The name of the site Author. Your name! This is used when building the rss feed
+    // The name of the site Author. Your name!
     'siteAuthor' => '',
 
     'subscribe' => true,
@@ -48,16 +58,27 @@ return [
             'label' => 'Github',
         ],
     ],
-//      'another social service' => [
-//          'link' => 'link to your account',
-//          'icon' => 'font awesome icon https://fontawesome.com/icons?d=gallery&m=free',
-//      ]
 
     // Google Analytics Tracking Id. For example, UA-123456789-1
     'gaTrackingId' => '',
 
-    'readingTime' => function($post) {
-        $mins = round(str_word_count(strip_tags($post)) / 200);
-        return $mins . ' min read';
-    }
+     // helpers
+    'getDate' => function ($page) {
+        return Datetime::createFromFormat('U', $page->date);
+    },
+
+    'getExcerpt' => function ($page, $length = 255) {
+        $content = $page->excerpt ?? $page->getContent();
+        $cleaned = strip_tags(
+            preg_replace(['/<pre>[\w\W]*?<\/pre>/', '/<h\d>[\w\W]*?<\/h\d>/'], '', $content), '<code>'
+        );
+        $truncated = substr($cleaned, 0, $length);
+
+        if (substr_count($truncated, '<code>') > substr_count($truncated, '</code>')) {
+            $truncated .= '</code>';
+        }
+        return strlen($cleaned) > $length
+            ? preg_replace('/\s+?(\S+)?$/', '', $truncated) . '...'
+            : $cleaned;
+    },
 ];

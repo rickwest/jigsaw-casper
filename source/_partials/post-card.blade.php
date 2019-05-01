@@ -1,5 +1,4 @@
 <article class="post-card {{!$post->image ? 'no-image' : '' }} {{ $loop->first || (($loop->index % 6) === 0) ? 'post-card-large' : '' }}">
-{{$loop->index}}
     @if($post->image)
     <a class="post-card-image-link" href="{{$post->getPath()}}">
     {{-- This is a responsive image, it loads different sizes depending on device --}}
