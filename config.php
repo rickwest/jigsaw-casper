@@ -27,19 +27,17 @@ return [
     // Number of collection items to show per page
     'perPage' => 10,
 
-    // The email address to send the https://formspree.io/ contact form submissions to
-    'email' => '',
-
-    // The name of the site. This is used in the nav and footer
+    // The name of the site
     'siteName' => 'Jigsaw Casper',
 
     // The description of the site. This is used in for the site's default metadata
-    'siteDescription' => 'The professional publishing platform',
+    'siteDescription' => 'Static sites for modern developers',
 
     // The name of the site Author. Your name!
     'siteAuthor' => 'Rick',
 
-    'subscribe' => 'https://tinyletter.com/rickwest',
+    // Tinyletter subscribe Url
+    'subscribe' => 'https://tinyletter.com/',
 
     // Social media links/icons that are used in the footer, add as many as you like!
     'socials' => [
