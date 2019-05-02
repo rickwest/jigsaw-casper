@@ -39,7 +39,7 @@ return [
     // The name of the site Author. Your name!
     'siteAuthor' => 'Rick',
 
-    'subscribe' => true,
+    'subscribe' => 'https://tinyletter.com/rickwest',
 
     // Social media links/icons that are used in the footer, add as many as you like!
     'socials' => [
@@ -68,7 +68,7 @@ return [
         return Datetime::createFromFormat('U', $page->date);
     },
 
-    'getExcerpt' => function ($page, $length = 255) {
+    'getExcerpt' => function ($page, $length = 200) {
         $content = $page->excerpt ?? $page->getContent();
         $cleaned = strip_tags(
             preg_replace(['/<pre>[\w\W]*?<\/pre>/', '/<h\d>[\w\W]*?<\/h\d>/'], '', $content), '<code>'
