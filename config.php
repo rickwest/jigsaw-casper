@@ -82,7 +82,7 @@ return [
     },
 
     'readingTime' => function($post) {
-        $mins = round(str_word_count(strip_tags($post)) / 200);
+        $mins = round(str_word_count(strip_tags($post)) / 225);
         return $mins . ' min read';
     },
 ];

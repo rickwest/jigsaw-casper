@@ -3,7 +3,7 @@ extends: _layouts.post
 section: content
 title: Getting Started
 date: 2019-01-21
-subtitle: Getting started with the Jigsaw Clean Blog starter template
+subtitle: Getting started with the Jigsaw Casper starter template
 image: /assets/images/getting-started.jpg
 tags: [getting-started]
 ---

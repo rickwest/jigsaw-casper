@@ -8,7 +8,7 @@ image: /assets/images/design.jpg
 tags: [getting-started]
 ---
 
-This starter template is based on the [Start Bootstrap Clean Blog](https://startbootstrap.com/template-overviews/clean-blog/) theme, which is built on top of  [Bootstrap 4](https://getbootstrap.com/), the world's most popular front-end component library.
+This starter is a port of the default [Ghost](https://ghost.org/) theme - [Casper](https://github.com/TryGhost/Casper), just change a few settings and you are ready to go.
 
 ---
 
