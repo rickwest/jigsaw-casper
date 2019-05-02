@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "91f9b50b6ddabeb49fb019e5c732dadc",
+    "content-hash": "3c97f8c92181f4242c981c3504e10755",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -860,6 +860,100 @@
                 "simple-cache"
             ],
             "time": "2017-10-23T01:57:42+00:00"
+        },
+        {
+            "name": "samdark/sitemap",
+            "version": "2.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/samdark/sitemap.git",
+                "reference": "dcfef471e79abca9d3c4d83dd6a7861cec1a596a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/samdark/sitemap/zipball/dcfef471e79abca9d3c4d83dd6a7861cec1a596a",
+                "reference": "dcfef471e79abca9d3c4d83dd6a7861cec1a596a",
+                "shasum": ""
+            },
+            "require": {
+                "ext-xmlwriter": "*",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "samdark\\sitemap\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Alexander Makarov",
+                    "email": "sam@rmcreative.ru",
+                    "homepage": "http://rmcreative.ru/"
+                }
+            ],
+            "description": "Sitemap and sitemap index builder",
+            "homepage": "https://github.com/samdark/sitemap",
+            "keywords": [
+                "Sitemap"
+            ],
+            "time": "2019-03-27T09:31:20+00:00"
+        },
+        {
+            "name": "suin/php-rss-writer",
+            "version": "1.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/suin/php-rss-writer.git",
+                "reference": "78f45e44a2a7cb0d82e4b9efb6f7b7a075b9051c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/suin/php-rss-writer/zipball/78f45e44a2a7cb0d82e4b9efb6f7b7a075b9051c",
+                "reference": "78f45e44a2a7cb0d82e4b9efb6f7b7a075b9051c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "eher/phpunit": ">=1.6",
+                "mockery/mockery": ">=0.7.2",
+                "suin/xoopsunit": ">=1.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Suin\\RSSWriter": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "suin",
+                    "email": "suinyeze@gmail.com"
+                }
+            ],
+            "description": "Yet another simple RSS writer library for PHP 5.4 or later.",
+            "homepage": "https://github.com/suin/php-rss-writer",
+            "keywords": [
+                "feed",
+                "generator",
+                "php",
+                "rss",
+                "writer"
+            ],
+            "time": "2017-07-13T10:47:50+00:00"
         },
         {
             "name": "symfony/console",
