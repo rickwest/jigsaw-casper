@@ -10,7 +10,8 @@
         <ul class="nav" role="menu">
             <li class="" role="menuitem"><a href="/">Blog</a></li>
             <li class="" role="menuitem"><a href="/about">About</a></li>
-            <li class="" role="menuitem"><a href="/contact">Contact</a></li>
+            <li class="" role="menuitem"><a href="/tag/getting-started">Getting Started</a></li>
+            <li class="" role="menuitem"><a href="https://jigsaw.tighten.co/">Try Jigsaw</a></li>
         </ul>
     </div>
     <div class="site-nav-right">
