@@ -14,6 +14,10 @@ class GenerateSitemap
 
     public function handle(Jigsaw $jigsaw)
     {
+        if (!$jigsaw->getConfig('production')) {
+            return;
+        }
+
         $baseUrl = $jigsaw->getConfig('baseUrl');
 
         if (!$baseUrl) {

@@ -13,6 +13,10 @@ class GenerateFeed
     {
         $config = $jigsaw->getConfig();
 
+        if (!$config['production']) {
+            return;
+        }
+
         if (!$config['baseUrl']) {
             echo("\nTo generate a rss.xml file, please specify a 'baseUrl' in config.php.\n\n");
             return;
