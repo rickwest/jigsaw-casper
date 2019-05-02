@@ -11,10 +11,11 @@ return [
     'collections' => [
     // Posts collection sorted by date and in descending order (latest post at the top)
         'posts' => [
-            'sort' => '-date'
+            'sort' => '-date',
+            'path' => '{filename}',
         ],
         'tags' => [
-            'path' => '/blog/categories/{filename}',
+            'path' => 'tag/{filename}',
             'posts' => function ($page, $allPosts) {
                 return $allPosts->filter(function ($post) use ($page) {
                     return $post->tags ? in_array($page->getFilename(), $post->tags, true) : false;
@@ -36,7 +37,7 @@ return [
     'siteDescription' => 'The professional publishing platform',
 
     // The name of the site Author. Your name!
-    'siteAuthor' => '',
+    'siteAuthor' => 'Rick',
 
     'subscribe' => true,
 
@@ -80,5 +81,10 @@ return [
         return strlen($cleaned) > $length
             ? preg_replace('/\s+?(\S+)?$/', '', $truncated) . '...'
             : $cleaned;
+    },
+
+    'readingTime' => function($post) {
+        $mins = round(str_word_count(strip_tags($post)) / 200);
+        return $mins . ' min read';
     },
 ];

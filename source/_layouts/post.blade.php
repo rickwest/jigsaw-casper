@@ -17,9 +17,11 @@
             <header class="post-full-header">
                 <section class="post-full-meta">
                     <time class="post-full-meta-date" datetime="{{ date('F jS, Y', $page->date) }}">{{ date('F jS, Y', $page->date) }}</time>
-                    {{--{{#primary_tag}}--}}
-                    {{--<span class="date-divider">/</span> <a href="{{url}}">{{name}}</a>--}}
-                    {{--{{/primary_tag}}--}}
+                    @if ($page->tags)
+                        @foreach ($page->tags as $i => $tag)
+                            <span class="date-divider">/</span> <a href="{{ '/tag/' . $tag }}" title="View posts in {{ $tag }}">{{ $tag }}</a>
+                        @endforeach
+                    @endif
                 </section>
                 <h1 class="post-full-title">{{$page->title}}</h1>
             </header>

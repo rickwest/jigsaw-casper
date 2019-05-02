@@ -1,10 +1,6 @@
----
-image: /assets/images/blog-cover.jpg
-pagination:
-    collection: posts
----
-
 @extends('_layouts.master')
+
+@section('body-class', 'tag-template')
 
 @section('body')
 
@@ -13,8 +9,8 @@ pagination:
     <main id="site-main" class="site-main outer">
         <div class="inner">
             <div class="post-feed">
-                @foreach ($pagination->items as $post)
-                    @include('_partials.post-card', ['postCardLarge' => $loop->first || (($loop->index % 6) === 0)])
+                @foreach ($page->posts($posts) as $post)
+                    @include('_partials.post-card', ['post' => $post])
                 @endforeach
             </div>
         </div>
