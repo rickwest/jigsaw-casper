@@ -66,7 +66,7 @@ return [
         return Datetime::createFromFormat('U', $page->date);
     },
 
-    'getExcerpt' => function ($page, $length = 200) {
+    'getExcerpt' => function ($page, $length = 225) {
         $content = $page->excerpt ?? $page->getContent();
         $cleaned = strip_tags(
             preg_replace(['/<pre>[\w\W]*?<\/pre>/', '/<h\d>[\w\W]*?<\/h\d>/'], '', $content), '<code>'
@@ -82,7 +82,7 @@ return [
     },
 
     'readingTime' => function($post) {
-        $mins = round(str_word_count(strip_tags($post)) / 225);
+        $mins = round(str_word_count(strip_tags($post)) / 200);
         return $mins . ' min read';
     },
 ];
